@@ -1,39 +1,93 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqh5vho7a3t2o"]
+[gd_scene load_steps=12 format=3 uid="uid://bnqc1a3nomicm"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_siojt"]
-[ext_resource type="Texture2D" uid="uid://b0x2qk37pqb0e" path="res://Assets/background.png" id="2_3307b"]
 [ext_resource type="PackedScene" uid="uid://bqqbyo1hok1gm" path="res://Scenes/Player/player.tscn" id="3_2d2h7"]
+[ext_resource type="Texture2D" uid="uid://cyyc38eg7r3m7" path="res://Assets/background_test.png" id="3_8v3go"]
 [ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://Scenes/platform.tscn" id="4_fwkwn"]
+[ext_resource type="PackedScene" uid="uid://dl21ysohu63ws" path="res://Scenes/Ball/ball.tscn" id="5_vv78m"]
+[ext_resource type="Script" path="res://Managers/CollisionManager/CollisionManager.gd" id="6_ivj03"]
+[ext_resource type="Script" path="res://Managers/CollisionManager/BoobleBullet.gd" id="7_de31y"]
+[ext_resource type="Script" path="res://Managers/CollisionManager/BooblePlayer.gd" id="8_ph1ut"]
+[ext_resource type="Script" path="res://Scenes/Game/UI.gd" id="9_bciqe"]
+[ext_resource type="Texture2D" uid="uid://d0v2e3amm3tua" path="res://Assets/platform.png" id="9_oi42n"]
+[ext_resource type="PackedScene" uid="uid://ceidxywskc110" path="res://Ui/PlayerUiControl.tscn" id="11_uhkfh"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_siojt")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 360)
-
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-texture = ExtResource("2_3307b")
+texture_filter = 3
+position = Vector2(192, 104)
+texture = ExtResource("3_8v3go")
 
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform1" parent="Platforms" instance=ExtResource("4_fwkwn")]
-position = Vector2(636, 720)
-scale = Vector2(39.75, 0.499999)
+visible = false
+position = Vector2(192, 204)
+scale = Vector2(11.5, 0.25)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("4_fwkwn")]
-position = Vector2(-0.375001, 364)
-scale = Vector2(0.476562, 22.75)
+visible = false
+position = Vector2(4, 104)
+scale = Vector2(0.25, 6)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("4_fwkwn")]
-position = Vector2(1280, 360)
-scale = Vector2(0.5, 23)
+visible = false
+position = Vector2(380, 104)
+scale = Vector2(0.25, 6)
 
 [node name="Platform4" parent="Platforms" instance=ExtResource("4_fwkwn")]
-position = Vector2(636, 0)
-scale = Vector2(40.25, 0.5)
+visible = false
+position = Vector2(192, 4)
+scale = Vector2(11.5, 0.25)
 
 [node name="Players" type="Node" parent="."]
 
 [node name="Player" parent="Players" instance=ExtResource("3_2d2h7")]
-position = Vector2(544, 344)
+position = Vector2(177, 184)
+
+[node name="Balls" type="Node" parent="."]
+
+[node name="Ball" parent="Balls" instance=ExtResource("5_vv78m")]
+position = Vector2(64, 64)
+
+[node name="Ball2" parent="Balls" instance=ExtResource("5_vv78m")]
+position = Vector2(320, 64)
+linear_velocity = Vector2(-50, 0)
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="CollisionManager" type="Node" parent="Managers"]
+script = ExtResource("6_ivj03")
+
+[node name="BoobleBullet" type="Node" parent="Managers/CollisionManager"]
+script = ExtResource("7_de31y")
+
+[node name="BooblePlayer" type="Node" parent="Managers/CollisionManager"]
+script = ExtResource("8_ph1ut")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(192, 125)
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource("9_bciqe")
+
+[node name="BackgroundUI" type="Sprite2D" parent="UI"]
+texture_filter = 3
+position = Vector2(192, 229)
+scale = Vector2(12, 1.3125)
+texture = ExtResource("9_oi42n")
+
+[node name="GridContainer" type="GridContainer" parent="UI"]
+clip_contents = true
+custom_minimum_size = Vector2(53, 0)
+offset_top = 208.0
+offset_right = 384.0
+offset_bottom = 250.0
+columns = 2
+
+[node name="Player" parent="UI/GridContainer" instance=ExtResource("11_uhkfh")]
+layout_mode = 2
+
+[connection signal="collision" from="Managers/CollisionManager" to="Managers/CollisionManager" method="_on_collision"]

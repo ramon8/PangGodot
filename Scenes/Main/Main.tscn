@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7lke8v157bqp"]
+
+[ext_resource type="PackedScene" uid="uid://cf6wubhvj84lw" path="res://Scenes/SplashScreen/SplashScreen.tscn" id="1_adu4t"]
+[ext_resource type="Script" path="res://Scenes/Main/Main.gd" id="1_m0m5l"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_m0m5l")
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="SplashScreen" parent="Scene" instance=ExtResource("1_adu4t")]
