@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dspxqvwsxykhd"]
+
+[ext_resource type="Script" path="res://Scenes/CharacterSelector/character_selector.gd" id="1_0dht2"]
+[ext_resource type="PackedScene" uid="uid://dl21ysohu63ws" path="res://Scenes/Ball/ball.tscn" id="2_erh0n"]
+[ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://Scenes/platform.tscn" id="2_xepdn"]
+[ext_resource type="Texture2D" uid="uid://cyyc38eg7r3m7" path="res://Assets/background_test.png" id="4_3gqeh"]
+
+[node name="CharacterSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0dht2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_xepdn")]
+position = Vector2(192, 4)
+scale = Vector2(12, 0.25)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_xepdn")]
+position = Vector2(4, 103.5)
+scale = Vector2(0.25, 6.15625)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_xepdn")]
+position = Vector2(380, 101)
+scale = Vector2(0.25, 6.3125)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_xepdn")]
+position = Vector2(192, 204)
+scale = Vector2(12, 0.25)
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Boobles" type="Node" parent="."]
+
+[node name="Ball" parent="Boobles" instance=ExtResource("2_erh0n")]
+position = Vector2(65, 47)
+
+[node name="Ball2" parent="Boobles" instance=ExtResource("2_erh0n")]
+position = Vector2(312, 46)
+linear_velocity = Vector2(-50, 0)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("4_3gqeh")
+offset = Vector2(192, 104)
+
+[connection signal="player_added" from="." to="." method="_on_player_added"]

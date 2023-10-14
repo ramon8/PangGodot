@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnqc1a3nomicm"]
+[gd_scene load_steps=9 format=3 uid="uid://bnqc1a3nomicm"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_siojt"]
 [ext_resource type="PackedScene" uid="uid://bqqbyo1hok1gm" path="res://Scenes/Player/player.tscn" id="3_2d2h7"]
 [ext_resource type="Texture2D" uid="uid://cyyc38eg7r3m7" path="res://Assets/background_test.png" id="3_8v3go"]
 [ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://Scenes/platform.tscn" id="4_fwkwn"]
 [ext_resource type="PackedScene" uid="uid://dl21ysohu63ws" path="res://Scenes/Ball/ball.tscn" id="5_vv78m"]
-[ext_resource type="Script" path="res://Managers/CollisionManager/CollisionManager.gd" id="6_ivj03"]
-[ext_resource type="Script" path="res://Managers/CollisionManager/BoobleBullet.gd" id="7_de31y"]
-[ext_resource type="Script" path="res://Managers/CollisionManager/BooblePlayer.gd" id="8_ph1ut"]
 [ext_resource type="Script" path="res://Scenes/Game/UI.gd" id="9_bciqe"]
 [ext_resource type="Texture2D" uid="uid://d0v2e3amm3tua" path="res://Assets/platform.png" id="9_oi42n"]
 [ext_resource type="PackedScene" uid="uid://ceidxywskc110" path="res://Ui/PlayerUiControl.tscn" id="11_uhkfh"]
@@ -56,17 +53,6 @@ position = Vector2(64, 64)
 position = Vector2(320, 64)
 linear_velocity = Vector2(-50, 0)
 
-[node name="Managers" type="Node" parent="."]
-
-[node name="CollisionManager" type="Node" parent="Managers"]
-script = ExtResource("6_ivj03")
-
-[node name="BoobleBullet" type="Node" parent="Managers/CollisionManager"]
-script = ExtResource("7_de31y")
-
-[node name="BooblePlayer" type="Node" parent="Managers/CollisionManager"]
-script = ExtResource("8_ph1ut")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 125)
 
@@ -89,5 +75,3 @@ columns = 2
 
 [node name="Player" parent="UI/GridContainer" instance=ExtResource("11_uhkfh")]
 layout_mode = 2
-
-[connection signal="collision" from="Managers/CollisionManager" to="Managers/CollisionManager" method="_on_collision"]

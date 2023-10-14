@@ -11,15 +11,17 @@ default_font_size = 11
 default_font_size = 11
 
 [node name="Player" type="Control"]
-custom_minimum_size = Vector2(80, 42)
+custom_minimum_size = Vector2(84, 42)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 97.0
+offset_right = 84.0
 offset_bottom = 42.0
 script = ExtResource("1_gwiio")
 
 [node name="Lives" type="Control" parent="."]
 anchors_preset = 0
+offset_left = -8.0
+offset_right = -8.0
 
 [node name="Live" type="Sprite2D" parent="Lives"]
 texture_filter = 3
@@ -55,9 +57,9 @@ text = "5"
 [node name="Points" type="RichTextLabel" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 51.0
+offset_left = 42.0
 offset_top = 12.0
-offset_right = 108.0
+offset_right = 99.0
 offset_bottom = 28.0
 theme = SubResource("Theme_whhsf")
 text = "371000"
@@ -65,14 +67,14 @@ text = "371000"
 [node name="PlayerName" type="RichTextLabel" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 13.0
+offset_left = 1.0
 offset_top = 2.0
-offset_right = 97.0
+offset_right = 85.0
 offset_bottom = 42.0
 theme = SubResource("Theme_rlv4e")
 text = "PLAYER-1
 "
 
 [node name="WeaponIcon" type="Sprite2D" parent="."]
-position = Vector2(89, 34)
+position = Vector2(73, 34)
 texture = ExtResource("2_e1e2d")

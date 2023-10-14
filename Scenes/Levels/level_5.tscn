@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://lutwl7rgkp2g"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_7m3vw"]
+[ext_resource type="Texture2D" uid="uid://cyyc38eg7r3m7" path="res://Assets/background_test.png" id="2_0rkhu"]
+[ext_resource type="PackedScene" uid="uid://dl21ysohu63ws" path="res://Scenes/Ball/ball.tscn" id="3_ctp4w"]
+[ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://Scenes/platform.tscn" id="4_8lm1n"]
+[ext_resource type="PackedScene" uid="uid://du4gh2hrnnkqi" path="res://Scenes/Blocks/horizontal_4_break.tscn" id="5_7pnm7"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_7m3vw")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_0rkhu")
+offset = Vector2(192, 104)
+
+[node name="Boobles" type="Node" parent="."]
+
+[node name="Ball" parent="Boobles" instance=ExtResource("3_ctp4w")]
+position = Vector2(64, 44)
+
+[node name="Ball3" parent="Boobles" instance=ExtResource("3_ctp4w")]
+position = Vector2(127, 44)
+size = 2
+
+[node name="Ball5" parent="Boobles" instance=ExtResource("3_ctp4w")]
+position = Vector2(191, 44)
+
+[node name="Ball4" parent="Boobles" instance=ExtResource("3_ctp4w")]
+position = Vector2(255, 44)
+size = 2
+
+[node name="Ball2" parent="Boobles" instance=ExtResource("3_ctp4w")]
+position = Vector2(320, 45)
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Wall" parent="Blocks" instance=ExtResource("4_8lm1n")]
+visible = false
+position = Vector2(192, 4)
+scale = Vector2(12, 0.25)
+
+[node name="Wall2" parent="Blocks" instance=ExtResource("4_8lm1n")]
+visible = false
+position = Vector2(192, 204)
+scale = Vector2(12, 0.25)
+
+[node name="Wall3" parent="Blocks" instance=ExtResource("4_8lm1n")]
+visible = false
+position = Vector2(4, 104)
+scale = Vector2(0.25, 6)
+
+[node name="Wall4" parent="Blocks" instance=ExtResource("4_8lm1n")]
+visible = false
+position = Vector2(380, 104)
+scale = Vector2(0.25, 6)
+
+[node name="break_4_h" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(32, 72)
+
+[node name="break_4_h2" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(64, 72)
+
+[node name="break_4_h3" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(96, 72)
+
+[node name="break_4_h4" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(128, 72)
+
+[node name="break_4_h5" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(160, 72)
+
+[node name="break_4_h6" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(192, 72)
+
+[node name="break_4_h7" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(224, 72)
+
+[node name="break_4_h8" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(256, 72)
+
+[node name="break_4_h9" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(288, 72)
+
+[node name="break_4_h10" parent="." instance=ExtResource("5_7pnm7")]
+position = Vector2(320, 72)

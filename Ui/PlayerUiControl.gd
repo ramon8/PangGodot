@@ -1,21 +1,25 @@
 extends Control
 
-@export var playerId = 0
+@export var playerId: int = -1
 var player
-var collisionManager
 
 # Called when the node enters the scene tree for the first time.
 #	get_node("Managers/CollisionManager").collision.connect(_on_test)
 func _ready():
-	collisionManager = get_node("/root/Main/Scene/Game/Managers/CollisionManager");
-	player = get_node("/root/Main/Scene/Game/Players").get_child(playerId)
+	playerId = player.controllerId
 	player.lives_change.connect(Callable(self, "lives_change"))
-	lives_change(player.lives)
+	player.points_change.connect(Callable(self, "points_change"))
+	player.weapon_change.connect(Callable(self, "weapon_change"))
+	set_player_data(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 #	$LiveNumber.set_text(player.lives)
 	pass
+
+func set_player_data(player):
+	lives_change(player.lives)
+	points_change(player.points)
 
 func lives_change(lives):
 	var livesNodesLength = $Lives.get_child_count()
@@ -25,3 +29,8 @@ func lives_change(lives):
 	if lives > 4:
 		$LiveNumber.set_visible(true)
 	
+func points_change(points):
+	$Points.set_text(str(points))	
+	
+func weapon_change(weapon):
+	pass

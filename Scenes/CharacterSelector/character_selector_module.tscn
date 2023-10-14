@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8ocdxbi3dio4"]
+
+[ext_resource type="Script" path="res://Scenes/CharacterSelector/CharacterSelectorModule.gd" id="1_011le"]
+[ext_resource type="Script" path="res://Scenes/CharacterSelector/PressAnyButton.gd" id="2_4npqn"]
+
+[sub_resource type="Theme" id="Theme_txfxu"]
+default_font_size = 11
+
+[node name="CharacterSelectorModule" type="Control"]
+custom_minimum_size = Vector2(85, 76)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_011le")
+
+[node name="PressAnyButton" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -38.0
+offset_right = 32.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_txfxu")
+text = "Press A to join"
+script = ExtResource("2_4npqn")
