@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2nr20l5ecj2u"]
+[gd_scene load_steps=7 format=3 uid="uid://d2nr20l5ecj2u"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_vxen8"]
 [ext_resource type="Texture2D" uid="uid://cyyc38eg7r3m7" path="res://Assets/background_test.png" id="2_6an5e"]
 [ext_resource type="PackedScene" uid="uid://dl21ysohu63ws" path="res://Scenes/Ball/ball.tscn" id="3_8ksyn"]
 [ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://Scenes/platform.tscn" id="4_f88f5"]
 [ext_resource type="PackedScene" uid="uid://dri82jfgm7caf" path="res://Scenes/Blocks/horizontal_2_break.tscn" id="5_2a8xa"]
+[ext_resource type="PackedScene" uid="uid://b4wf3t0uxalu4" path="res://Scenes/Powerups/Bomb.tscn" id="6_vql4v"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_vxen8")
@@ -90,3 +91,6 @@ position = Vector2(248, 72)
 
 [node name="break_3_h5" parent="." instance=ExtResource("5_2a8xa")]
 position = Vector2(312, 72)
+
+[node name="Bomb" parent="." instance=ExtResource("6_vql4v")]
+position = Vector2(192, 88)
