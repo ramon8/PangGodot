@@ -11,13 +11,25 @@ config_version=5
 [application]
 
 config/name="Pang"
-run/main_scene="res://Scenes/Game/game.tscn"
+run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Managers/GameManager/game_manager.tscn"
+ControllerManager="*res://Managers/ControllerManager/controller_manager.tscn"
+CollisionManager="*res://Managers/CollisionManager/collision_manager.tscn"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=480
+window/size/viewport_height=270
 window/size/mode=2
-window/stretch/mode="viewport"
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://Assets/cursor_128x128.png"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

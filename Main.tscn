@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://blbu3ncntbpyu"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_qrq5d"]
+[ext_resource type="Texture2D" uid="uid://ca48hfla51yvc" path="res://Assets/cursor_8x8.png" id="2_smpex"]
+[ext_resource type="Script" path="res://Cursor.gd" id="3_56ldc"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_qrq5d")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+position = Vector2(251, 137)
+texture = ExtResource("2_smpex")
+script = ExtResource("3_56ldc")
+
+[node name="Cursor2" type="Sprite2D" parent="."]
+position = Vector2(251, 137)
+texture = ExtResource("2_smpex")
+script = ExtResource("3_56ldc")
+deviceId = 1
