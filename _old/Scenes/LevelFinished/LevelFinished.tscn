@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://_old/Scenes/LevelFinished/LevelFinished.gd" id="1_mpv50"]
+[ext_resource type="Texture2D" uid="uid://d0v2e3amm3tua" path="res://_old/Assets/platform.png" id="1_wh31h"]
+[ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://_old/Scenes/platform.tscn" id="3_be0x1"]
+
+[sub_resource type="Theme" id="Theme_oywg0"]
+
+[node name="LevelFinished" type="Node2D"]
+script = ExtResource("1_mpv50")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(192, 125)
+scale = Vector2(12, 7.8125)
+texture = ExtResource("1_wh31h")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 148.0
+offset_top = 72.0
+offset_right = 260.0
+offset_bottom = 175.0
+theme = SubResource("Theme_oywg0")
+text = "    Stage 1
+
+
+ Next Level"
+
+[node name="Wall2" parent="." instance=ExtResource("3_be0x1")]
+visible = false
+position = Vector2(192, 204)
+scale = Vector2(12, 0.25)

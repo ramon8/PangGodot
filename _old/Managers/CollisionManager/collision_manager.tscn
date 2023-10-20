@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://_old/Managers/CollisionManager/CollisionManager.gd" id="1_f77fe"]
+[ext_resource type="Script" path="res://_old/Managers/CollisionManager/BoobleBullet.gd" id="2_mnsyo"]
+[ext_resource type="Script" path="res://_old/Managers/CollisionManager/BooblePlayer.gd" id="3_e8bse"]
+[ext_resource type="Script" path="res://_old/Managers/CollisionManager/PlayerPowerup.gd" id="4_wijek"]
+
+[node name="CollisionManager" type="Node"]
+script = ExtResource("1_f77fe")
+
+[node name="BoobleBullet" type="Node" parent="."]
+script = ExtResource("2_mnsyo")
+
+[node name="BooblePlayer" type="Node" parent="."]
+script = ExtResource("3_e8bse")
+
+[node name="PlayerPowerup" type="Node" parent="."]
+script = ExtResource("4_wijek")
+
+[connection signal="collision" from="." to="." method="_on_collision"]

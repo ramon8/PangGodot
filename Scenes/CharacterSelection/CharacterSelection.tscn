@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5acg687lds2e"]
+
+[ext_resource type="Texture2D" uid="uid://bl03xc2nthfly" path="res://Assets/character_selector_empty.png" id="1_0ey1c"]
+[ext_resource type="Texture2D" uid="uid://cqniauh4s2csl" path="res://Assets/character_1_selector.png" id="1_7gl2w"]
+[ext_resource type="Script" path="res://Scenes/CharacterSelection/CharacterSelection.gd" id="1_up0xj"]
+[ext_resource type="PackedScene" uid="uid://c6kq1q7w3xava" path="res://Objects/Cursor/Cursor.tscn" id="2_csr1y"]
+[ext_resource type="Texture2D" uid="uid://beuqn2fgtjig3" path="res://Assets/character_2_selector.png" id="2_h3kox"]
+[ext_resource type="Script" path="res://Scenes/CharacterSelection/PlayerControl.gd" id="2_iqgq8"]
+[ext_resource type="Texture2D" uid="uid://cr7qcfvgvc6ln" path="res://Assets/character_3_selector.png" id="3_fetb0"]
+[ext_resource type="Texture2D" uid="uid://beapsmf05k5fx" path="res://Assets/character_4_selector.png" id="4_euie8"]
+
+[node name="CharacterSelection" type="Node2D"]
+script = ExtResource("1_up0xj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="GridContainer2" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 144.0
+offset_bottom = 159.0
+
+[node name="PlayerControl" type="Control" parent="Control/GridContainer2"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+script = ExtResource("2_iqgq8")
+controllerId = null
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/GridContainer2/PlayerControl"]
+texture = ExtResource("1_0ey1c")
+offset = Vector2(16, 16)
+
+[node name="Characters" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -70.0
+offset_right = 16.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character" type="Button" parent="Control/Characters"]
+clip_contents = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Characters/Character"]
+position = Vector2(16, 16)
+texture = ExtResource("1_7gl2w")
+
+[node name="Character2" type="Button" parent="Control/Characters"]
+clip_contents = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Characters/Character2"]
+position = Vector2(16, 16)
+texture = ExtResource("2_h3kox")
+
+[node name="Character3" type="Button" parent="Control/Characters"]
+clip_contents = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Characters/Character3"]
+position = Vector2(16, 16)
+texture = ExtResource("3_fetb0")
+
+[node name="Character4" type="Button" parent="Control/Characters"]
+clip_contents = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Characters/Character4"]
+position = Vector2(16, 16)
+texture = ExtResource("4_euie8")
+
+[node name="GridContainer3" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_left = 176.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="Node2D" type="Node2D" parent="Control/GridContainer3"]
+
+[node name="Cursor" parent="." instance=ExtResource("2_csr1y")]

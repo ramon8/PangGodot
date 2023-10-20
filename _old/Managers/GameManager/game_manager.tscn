@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq1ntot7dt518"]
+
+[ext_resource type="Script" path="res://_old/Managers/GameManager/GameManager.gd" id="1_bhw5q"]
+
+[node name="GameManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_bhw5q")
+
+[node name="NextLevelTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="gamePaused" from="." to="." method="_on_game_paused"]

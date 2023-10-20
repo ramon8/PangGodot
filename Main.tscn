@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://xqrg8p07wmu"]
+
+[ext_resource type="PackedScene" uid="uid://c7s45mxav0r7b" path="res://Scenes/StartMenu/StartMenu.tscn" id="2_ouwhd"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CurrentScene" type="Node2D" parent="."]
+
+[node name="StartMenu" parent="CurrentScene" instance=ExtResource("2_ouwhd")]

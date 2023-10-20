@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://_old/Scenes/Game/game.gd" id="1_siojt"]
+[ext_resource type="PackedScene" uid="uid://bqqbyo1hok1gm" path="res://_old/Scenes/Player/player.tscn" id="3_2d2h7"]
+[ext_resource type="Texture2D" uid="uid://cyyc38eg7r3m7" path="res://_old/Assets/background_test.png" id="3_8v3go"]
+[ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://_old/Scenes/platform.tscn" id="4_fwkwn"]
+[ext_resource type="PackedScene" path="res://_old/Scenes/Ball/ball.tscn" id="5_vv78m"]
+[ext_resource type="Script" path="res://_old/Scenes/Game/UI.gd" id="9_bciqe"]
+[ext_resource type="Texture2D" uid="uid://d0v2e3amm3tua" path="res://_old/Assets/platform.png" id="9_oi42n"]
+[ext_resource type="PackedScene" uid="uid://ceidxywskc110" path="res://_old/Ui/PlayerUiControl.tscn" id="11_uhkfh"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_siojt")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(192, 104)
+texture = ExtResource("3_8v3go")
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform1" parent="Platforms" instance=ExtResource("4_fwkwn")]
+visible = false
+position = Vector2(192, 204)
+scale = Vector2(11.5, 0.25)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("4_fwkwn")]
+visible = false
+position = Vector2(4, 104)
+scale = Vector2(0.25, 6)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("4_fwkwn")]
+visible = false
+position = Vector2(380, 104)
+scale = Vector2(0.25, 6)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("4_fwkwn")]
+visible = false
+position = Vector2(192, 4)
+scale = Vector2(11.5, 0.25)
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource("3_2d2h7")]
+position = Vector2(177, 184)
+
+[node name="Balls" type="Node" parent="."]
+
+[node name="Ball" parent="Balls" instance=ExtResource("5_vv78m")]
+position = Vector2(64, 64)
+
+[node name="Ball2" parent="Balls" instance=ExtResource("5_vv78m")]
+position = Vector2(320, 64)
+linear_velocity = Vector2(-50, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(192, 125)
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource("9_bciqe")
+
+[node name="BackgroundUI" type="Sprite2D" parent="UI"]
+texture_filter = 3
+position = Vector2(192, 229)
+scale = Vector2(12, 1.3125)
+texture = ExtResource("9_oi42n")
+
+[node name="GridContainer" type="GridContainer" parent="UI"]
+clip_contents = true
+custom_minimum_size = Vector2(53, 0)
+offset_top = 208.0
+offset_right = 384.0
+offset_bottom = 250.0
+columns = 2
+
+[node name="Player" parent="UI/GridContainer" instance=ExtResource("11_uhkfh")]
+layout_mode = 2

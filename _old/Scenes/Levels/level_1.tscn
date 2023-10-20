@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://_old/Scenes/Levels/level_1.gd" id="1_hmf2s"]
+[ext_resource type="PackedScene" path="res://_old/Scenes/Ball/ball.tscn" id="2_5m6d8"]
+[ext_resource type="PackedScene" uid="uid://bqqbyo1hok1gm" path="res://_old/Scenes/Player/player.tscn" id="2_hn1e8"]
+[ext_resource type="PackedScene" uid="uid://b6ernw55n5yvo" path="res://_old/Scenes/platform.tscn" id="4_4sr36"]
+[ext_resource type="Texture2D" uid="uid://cyyc38eg7r3m7" path="res://_old/Assets/background_test.png" id="5_pitii"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_hmf2s")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("5_pitii")
+offset = Vector2(192, 104)
+
+[node name="Boobles" type="Node" parent="."]
+
+[node name="Ball2" parent="Boobles" instance=ExtResource("2_5m6d8")]
+position = Vector2(191, 40)
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="Wall" parent="Blocks" instance=ExtResource("4_4sr36")]
+visible = false
+position = Vector2(192, 4)
+scale = Vector2(12, 0.25)
+
+[node name="Wall2" parent="Blocks" instance=ExtResource("4_4sr36")]
+visible = false
+position = Vector2(192, 204)
+scale = Vector2(12, 0.25)
+
+[node name="Wall3" parent="Blocks" instance=ExtResource("4_4sr36")]
+visible = false
+position = Vector2(4, 104)
+scale = Vector2(0.25, 6)
+
+[node name="Wall4" parent="Blocks" instance=ExtResource("4_4sr36")]
+visible = false
+position = Vector2(380, 104)
+scale = Vector2(0.25, 6)
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource("2_hn1e8")]
+position = Vector2(192, 184)
+isKeyBoard = true
